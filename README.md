@@ -33,6 +33,24 @@ The examples for the [Applied Rag notebook](./examples/3-applied-rag/embeddings.
 
 I recommend using the [Phi-2 model](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#other-example-llamafiles) which is about 2GB in size. You can download the model from the Llamafile repository and run it in your system:
 
+## Running Llama Locally
+
+To use the Llama model locally, follow these steps:
+
+1. Download the `Llama-3.2-3B-Instruct.Q6_K.llamafile` file.
+2. Make it executable:
+   ```
+   chmod +x Llama-3.2-3B-Instruct.Q6_K.llamafile
+   ```
+3. Start the model server:
+   ```
+   ./Llama-3.2-3B-Instruct.Q6_K.llamafile
+   ```
+   This will launch a local API server at `http://127.0.0.1:8080/v1`.
+
+You can then connect to this server using the OpenAI-compatible API in your code.
+
+
 Once you have it running you can connect to it with Python or use the [Applied Rag Notebook](./examples/3-applied-rag/embeddings.ipynb). Here is a quick example of how to use the Llamafile with Python:
 
 ```python

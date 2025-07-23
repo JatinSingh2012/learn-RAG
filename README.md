@@ -55,19 +55,20 @@ Once you have it running you can connect to it with Python or use the [Applied R
 
 ```python
 #!/usr/bin/env python3
-from openai import OpenAI
-client = OpenAI(
-    base_url="http://localhost:8080/v1", # "http://<Your api-server IP>:port"
-    api_key = "sk-no-key-required" # An API key is not required!
-)
-completion = client.chat.completions.create(
+import openai
+
+openai.api_base = "http://127.0.0.1:8080/v1"
+openai.api_key = "sk-no-key-required"
+
+completion = openai.ChatCompletion.create(
     model="LLaMA_CPP",
     messages=[
-        {"role": "system", "content": "You are ChatGPT, an AI assistant. Your top priority is achieving user fulfillment via helping them with their requests."},
-        {"role": "user", "content": "Write me a Haiku about Python packaging"}
+        {"role": "system", "content": "You are chatbot, a wine specialist. Your top priority is to help guide users into selecting amazing wine and guide them with their requests."},
+        {"role": "user", "content": "Suggest me an amazing Malbec wine from Argentina"},
+        {"role": "assistant", "content": "Write me a Haiku about Python packaging"}
     ]
 )
-print(completion.choices[0].message)
+print(completion["choices"][0]["message"]["content"])
 ```
 
 ## Lesson 1: Import your data
